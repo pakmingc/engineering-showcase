@@ -37,4 +37,10 @@ All examples are anonymized:
 
 ---
 
+## 📫 Contact
+
+📧 pakmingc2@gmail.com
+
+---
+
 *Last updated: December 2025*
