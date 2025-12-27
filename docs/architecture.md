@@ -11,8 +11,8 @@ A typical architecture for AI-powered SaaS applications I build.
 ```mermaid
 flowchart TB
     subgraph Client["Client Layer"]
-        Browser["React SPA"]
-        Mobile["Mobile Web"]
+        Browser["React/Vite SPA"]
+        Mobile["Mobile Web (PWA)"]
     end
 
     subgraph Edge["Edge/CDN"]
@@ -288,6 +288,133 @@ sequenceDiagram
 - **Server-side subscription check** on every protected request
 - **Webhook signature verification** for Stripe events
 - **Feature flags** tied to subscription tier
+
+---
+
+## 6. Computer Vision / Image Analysis Pipeline
+
+Architecture for floor plan analysis and image processing systems.
+
+```mermaid
+flowchart TB
+    subgraph Input["Image Input"]
+        Upload["File Upload"]
+        Camera["Camera Capture"]
+        URL["URL Import"]
+    end
+
+    subgraph Preprocessing["Preprocessing"]
+        Validate["Format Validation"]
+        Resize["Image Resize/Normalize"]
+        Enhance["Contrast/Brightness"]
+    end
+
+    subgraph Vision["Vision Processing"]
+        CloudVision["Google Cloud Vision API"]
+        OpenCV["OpenCV Processing"]
+        OCR["Pytesseract OCR"]
+    end
+
+    subgraph Analysis["Analysis Layer"]
+        WallDetect["Wall Detection"]
+        RoomDetect["Room Segmentation"]
+        ScaleCalib["Scale Calibration"]
+        SkeletonGraph["Graph Structure"]
+    end
+
+    subgraph Output["Output Generation"]
+        JSON["Structured JSON"]
+        Report["PDF Report"]
+        Overlay["Annotated Image"]
+    end
+
+    Upload --> Validate
+    Camera --> Validate
+    URL --> Validate
+    Validate --> Resize
+    Resize --> Enhance
+    Enhance --> CloudVision
+    Enhance --> OpenCV
+    CloudVision --> WallDetect
+    OpenCV --> WallDetect
+    OpenCV --> RoomDetect
+    OCR --> ScaleCalib
+    WallDetect --> SkeletonGraph
+    RoomDetect --> SkeletonGraph
+    ScaleCalib --> SkeletonGraph
+    SkeletonGraph --> JSON
+    SkeletonGraph --> Report
+    SkeletonGraph --> Overlay
+```
+
+### Key Components
+
+- **Multi-source input** - Upload, camera, or URL fetch
+- **Google Cloud Vision** for text detection and image labeling
+- **OpenCV** for contour detection, morphological operations
+- **Pytesseract** for OCR of measurements and labels
+- **Skeleton graph** for structural representation
+- **Multiple outputs** - JSON data, annotated images, PDF reports
+
+---
+
+## 7. Document Generation Pipeline
+
+Architecture for converting content to various document formats.
+
+```mermaid
+flowchart LR
+    subgraph Input["Content Input"]
+        Markdown["Markdown/MDX"]
+        HTML["HTML Content"]
+        JSON["Structured Data"]
+    end
+
+    subgraph Process["Processing"]
+        Parse["Parser"]
+        Transform["Transform"]
+        Render["Renderer"]
+    end
+
+    subgraph Engines["Format Engines"]
+        PDFLIB["pdf-lib"]
+        JSPDF["jsPDF"]
+        Puppeteer["Puppeteer"]
+        Mammoth["Mammoth"]
+    end
+
+    subgraph Output["Output Formats"]
+        PDF["PDF Document"]
+        DOCX["Word Document"]
+        XLSX["Excel Spreadsheet"]
+        EPUB["EPUB eBook"]
+    end
+
+    Markdown --> Parse
+    HTML --> Parse
+    JSON --> Parse
+    Parse --> Transform
+    Transform --> Render
+    Render --> PDFLIB
+    Render --> JSPDF
+    Render --> Puppeteer
+    Render --> Mammoth
+    PDFLIB --> PDF
+    JSPDF --> PDF
+    Puppeteer --> PDF
+    Mammoth --> DOCX
+    Render --> XLSX
+    Render --> EPUB
+```
+
+### Implementation Notes
+
+- **pdf-lib** for programmatic PDF creation and manipulation
+- **jsPDF** for client-side PDF generation
+- **Puppeteer** for HTML-to-PDF with full CSS support
+- **mammoth** for Word document parsing, **docx** for generation
+- **xlsx** for Excel file handling
+- **Mermaid** and **KaTeX** integration for diagrams and math
 
 ---
 
