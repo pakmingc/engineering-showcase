@@ -417,4 +417,36 @@ Would evaluate managed solutions (SQS, Cloud Tasks) more seriously for productio
 
 ---
 
+## 16. Open-Source DMS vs Building Custom
+
+**Date:** 2024
+
+### Context
+Client needed document management capabilities. Had to decide between using an established open-source solution or building custom.
+
+### Options Considered
+1. **Build custom** - Full control, but significant development time
+2. **OpenKM** - Java-based, open-source, enterprise features
+3. **SaaS solution** - Quick setup, but ongoing costs and data concerns
+
+### Decision
+Evaluated and deployed **OpenKM** (open-source DMS).
+
+### Trade-offs
+| Pros | Cons |
+|------|------|
+| No licensing costs | Requires Java/Tomcat expertise |
+| Full data control | Self-hosted maintenance |
+| Enterprise features out of box | Learning curve for customization |
+
+### Implementation Notes
+- Local deployment with Tomcat 9 and JDK 8
+- Maven-based build for customizations
+- WAR file deployment process
+
+### What I Would Improve
+Would document the deployment process better from the start. Java ecosystem has many configuration nuances that are easy to forget.
+
+---
+
 *This log is continuously updated as I make significant technical decisions.*
