@@ -1,3 +1,5 @@
+<img src="monorepo-structure.png.jpeg" alt="Engineering Architecture" width="100%">
+
 # Engineering Showcase
 
 This repository demonstrates my engineering approach through architecture documentation, decision logs, and anonymized case studies. No production code is included - this is purely documentation to support technical discussions during interviews.
@@ -43,4 +45,4 @@ All examples are anonymized:
 
 ---
 
-*Last updated: December 2025*
+*Last updated: January 2026*

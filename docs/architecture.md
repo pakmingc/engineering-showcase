@@ -6,6 +6,8 @@ This document contains anonymized architecture diagrams representing patterns I'
 
 ## 1. Full-Stack SaaS Architecture
 
+<img src="images/saas-architecture.png.jpeg" alt="SaaS Architecture" width="700">
+
 A typical architecture for AI-powered SaaS applications I build.
 
 ```mermaid
@@ -70,6 +72,8 @@ flowchart TB
 
 ## 2. AI/LLM Integration Architecture
 
+<img src="images/llm-integration-flow.png.jpeg" alt="LLM Integration Architecture" width="700">
+
 Pattern for building reliable LLM-powered features with fallback and monitoring.
 
 ```mermaid
@@ -125,6 +129,8 @@ flowchart LR
 ---
 
 ## 3. Document Processing Pipeline
+
+<img src="images/document-processing.png.jpeg" alt="Document Processing Pipeline" width="700">
 
 Architecture for OCR and document processing systems.
 
@@ -292,6 +298,8 @@ sequenceDiagram
 ---
 
 ## 6. Computer Vision / Image Analysis Pipeline
+
+<img src="images/testing-architecture.png.jpeg" alt="Vision Testing Architecture" width="700">
 
 Architecture for floor plan analysis and image processing systems.
 
