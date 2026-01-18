@@ -1,4 +1,4 @@
-<img src="monorepo-structure.png.jpeg" alt="Engineering Architecture" width="100%">
+<img src="monorepo-structure.png" alt="Engineering Architecture" width="100%">
 
 # Engineering Showcase
 
